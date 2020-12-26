@@ -8,7 +8,8 @@ class Database
     public function __construct()
     {
         try {
-            $this->pdo = new PDO("mysql:host=localhost;dbname=Mediator;charset=utf8", "admin", "BS:db!721915");
+            if ($_SERVER["HTTP_HOST"] == "new-mediator.profuder.com") $this->pdo = new PDO("mysql:host=db5000407166.hosting-data.io;dbname=dbs389491;charset=utf8", "dbu213309", "BM7!my2163"); 
+            else $this->pdo = new PDO("mysql:host=localhost;dbname=Mediator;charset=utf8", "admin", "BS:db!721915");            
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die ("[ERROR] " . $e->getMessage() . "<br />");
