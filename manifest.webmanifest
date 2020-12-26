@@ -1,0 +1,76 @@
+{
+    "dir": "ltr",
+    "lang": "fr",
+    "name": "Mediator",
+    "short_name": "Mediator",
+    "description": "Mediator est la base cinématographique de Profuder. Trouvez des informations sur les derniers films, séries et célébrités.",
+    "theme_color": "#202124",
+    "background_color": "#202124",
+    "scope": "/",
+    "start_url": "/home",
+    "display": "standalone",
+    "orientation": "any",
+    "icons":
+    [
+        {
+            "src": "/assets/imgs/mediator-128-maskable.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-128-maskable.webp",
+            "sizes": "128x128",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-192-maskable.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-192-maskable.webp",
+            "sizes": "192x192",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-256-maskable.png",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-256-maskable.webp",
+            "sizes": "256x256",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-512-maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-512-maskable.webp",
+            "sizes": "512x512",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-1024-maskable.png",
+            "sizes": "1024x1024",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/imgs/mediator-1024-maskable.webp",
+            "sizes": "1024x1024",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        }
+    ]
+}
