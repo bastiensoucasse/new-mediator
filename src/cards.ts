@@ -29,10 +29,16 @@ class Card {
 
     setActive(active = true) {
         if (active) {
-            this.view.classList.add("active");
-            this.background.classList.add("active");
+            this.view.classList.add(`active`);
+            this.background.classList.add(`active`);
 
-            this.view.focus({ preventScroll: true });
+            let img = this.view.querySelector(`img`);
+            if (img != null) {
+                img.setAttribute(`width`, `${Card.width * Card.multiplier}`);
+                img.setAttribute(`height`, `${Card.height * Card.multiplier}`);
+            }
+
+            this.view.focus();
 
             if (wrap == null)
                 return;
@@ -44,50 +50,58 @@ class Card {
             let position = index * (Card.width + Card.margin);
             wrap.scrollTo(position, 0);
         } else {
-            this.view.classList.remove("active");
-            this.background.classList.remove("active");
+            this.view.classList.remove(`active`);
+            this.background.classList.remove(`active`);
+
+            let img = this.view.querySelector(`img`);
+            if (img != null) {
+                img.setAttribute(`width`, `${Card.width}`);
+                img.setAttribute(`height`, `${Card.height}`);
+            }
         }
     }
 }
 
 function initDOM() {
-    app = document.querySelector("#app");
+    app = document.querySelector(`#app`);
     if (app == null)
-        throw new Error("Could not retrieve app DOM.");
+        throw new Error(`Could not retrieve app DOM.`);
 
-    wrap = document.querySelector("#wrap");
+    wrap = document.querySelector(`#wrap`);
     if (wrap == null)
-        throw new Error("Could not retrieve wrap DOM.");
+        throw new Error(`Could not retrieve wrap DOM.`);
 
-    backgrounds = document.createElement("div");
-    backgrounds.id = "backgrounds";
+    backgrounds = document.createElement(`div`);
+    backgrounds.id = `backgrounds`;
     app.appendChild(backgrounds);
 }
 
 function initCards() {
     cards = new Map<number, Card>();
 
-    let views = document.getElementsByClassName("card");
+    let views = document.getElementsByClassName(`card`);
     for (let index = 0; index < views.length; index++) {
         let view = <HTMLElement>views[index];
-        view.setAttribute("href", "javascript:void(0)");
+        view.setAttribute(`href`, `javascript:void(0)`);
 
         let id = Number(view.id.substr(5));
 
-        let background = document.createElement("div");
-        background.id = "background-" + id;
-        background.classList.add("background");
+        let background = document.createElement(`div`);
+        background.id = `background-${id}`;
+        background.classList.add(`background`);
         if (index == 0)
-            background.classList.add("active");
+            background.classList.add(`active`);
         backgrounds.appendChild(background);
 
-        let image = document.createElement("img");
-        image.classList.add("lazyload");
-        image.setAttribute("data-src", "https://mediator.profuder.com/images/backdrops/originals/" + id + ".webp");
-        image.setAttribute("width", String(window.innerWidth));
-        image.setAttribute("height", String(window.innerHeight));
-        image.setAttribute("loading", "lazy");
-        image.setAttribute("alt", "");
+        let image = document.createElement(`img`);
+        image.classList.add(`lazyload`);
+        image.setAttribute(`data-sizes`, `auto`);
+        image.setAttribute(`data-src`, `assets/images/backdrops/1080p/${id}.webp`);
+        image.setAttribute(`data-srcset`, `assets/images/backdrops/1080p/${id}.webp 1x, assets/images/backdrops/2160p/${id}.webp 2x`);
+        image.setAttribute(`width`, String(window.innerWidth));
+        image.setAttribute(`height`, String(window.innerHeight));
+        image.setAttribute(`loading`, `lazy`);
+        image.setAttribute(`alt`, ``);
         background.append(image);
 
         let card = new Card(id, view, background);
@@ -110,33 +124,33 @@ function getById(id: number) {
 function getActive() {
     for (let index = 0; index < cards.size; index++) {
         let card = getByIndex(index);
-        if (card != undefined && card.view.classList.contains("active"))
+        if (card != undefined && card.view.classList.contains(`active`))
             return card;
     } return undefined;
 }
 
 function initHandlers() {
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener(`keydown`, (event) => {
         let selectedIndex = -1, previousIndex = cards.keys().next().value;
 
         switch (event.code) {
-            case "ArrowLeft":
+            case `ArrowLeft`:
                 event.preventDefault();
                 event.stopPropagation();
 
                 cards.forEach((card, index) => {
-                    if (card.view.classList.contains("active"))
+                    if (card.view.classList.contains(`active`))
                         selectedIndex = previousIndex;
                     previousIndex = index;
                 });
                 break;
-            case "ArrowRight":
+            case `ArrowRight`:
                 event.preventDefault();
                 event.stopPropagation();
 
                 cards.forEach((_card, index) => {
                     let card = getByIndex(previousIndex)
-                    if (card != undefined && card.view.classList.contains("active"))
+                    if (card != undefined && card.view.classList.contains(`active`))
                         selectedIndex = index;
                     previousIndex = index;
                 });
@@ -157,14 +171,14 @@ function initHandlers() {
     });
 
     cards.forEach((card, _index) => {
-        card.view.addEventListener("click", () => {
+        card.view.addEventListener(`click`, () => {
             let active = getActive();
             if (active != undefined)
                 active.setActive(false);
             card.setActive();
         });
 
-        card.view.addEventListener("focus", () => {
+        card.view.addEventListener(`focus`, () => {
             let active = getActive();
             if (active != undefined)
                 active.setActive(false);
@@ -176,7 +190,7 @@ function initHandlers() {
         return;
 
     let scrolling: number;
-    wrap.addEventListener("scroll", () => {
+    wrap.addEventListener(`scroll`, () => {
         window.clearTimeout(scrolling);
         scrolling = window.setTimeout(() => {
             if (wrap == null)
@@ -205,7 +219,11 @@ function initHandlers() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(`DOMContentLoaded`, () => {
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+    }
+
     initDOM();
     initCards();
     initHandlers();

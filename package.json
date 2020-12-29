@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1"
+  },
+  "dependencies": {
+    "minify": "^6.0.1"
   }
 }

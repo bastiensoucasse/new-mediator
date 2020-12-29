@@ -227,5 +227,7 @@ main {
 .lazyloading {
   opacity: 1;
   transition: opacity 450ms;
-  background: url("/assets/imgs/loader.svg") no-repeat center;
+  background: url("/assets/images/icons/loader.svg") no-repeat center;
 }
+
+/*# sourceMappingURL=mediator.css.map */

@@ -13,61 +13,61 @@
     "icons":
     [
         {
-            "src": "/assets/imgs/mediator-128-maskable.png",
+            "src": "/assets/images/icons/mediator-128-maskable.png",
             "sizes": "128x128",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-128-maskable.webp",
+            "src": "/assets/images/icons/mediator-128-maskable.webp",
             "sizes": "128x128",
             "type": "image/webp",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-192-maskable.png",
+            "src": "/assets/images/icons/mediator-192-maskable.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-192-maskable.webp",
+            "src": "/assets/images/icons/mediator-192-maskable.webp",
             "sizes": "192x192",
             "type": "image/webp",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-256-maskable.png",
+            "src": "/assets/images/icons/mediator-256-maskable.png",
             "sizes": "256x256",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-256-maskable.webp",
+            "src": "/assets/images/icons/mediator-256-maskable.webp",
             "sizes": "256x256",
             "type": "image/webp",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-512-maskable.png",
+            "src": "/assets/images/icons/mediator-512-maskable.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-512-maskable.webp",
+            "src": "/assets/images/icons/mediator-512-maskable.webp",
             "sizes": "512x512",
             "type": "image/webp",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-1024-maskable.png",
+            "src": "/assets/images/icons/mediator-1024-maskable.png",
             "sizes": "1024x1024",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/imgs/mediator-1024-maskable.webp",
+            "src": "/assets/images/icons/mediator-1024-maskable.webp",
             "sizes": "1024x1024",
             "type": "image/webp",
             "purpose": "any maskable"
