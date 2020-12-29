@@ -6,9 +6,11 @@ $iconTypes = array("png", "webp");
 ?>
 
 <head>
-    <base href="<?= DOMAIN ?>">
+    <base href="<?= BASE ?>">
     <link rel="home" href="home">
     <link rel="manifest" crossorigin="use-credentials" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap">
     <link rel="shortcut icon" href="assets/imgs/favicon.ico">
     <?php
     foreach ($iconSizes as $s)
@@ -23,15 +25,14 @@ $iconTypes = array("png", "webp");
     }
     ?>
     <meta charset="utf-8">
-    <meta name="canonical" content="<?= DOMAIN . "/" . $page->getID() ?>">
+    <meta name="canonical" content="<?= CANONICAL . "/" . $page->getID() ?>">
     <meta name="description" content="<?= $page->getDescription(); ?>">
     <meta name="referer" content="origin">
     <meta name="theme-color" content="#202124">
     <meta name="viewport" content="initial-scale=1, width=device-width">
-    <script><?php require "dist/service-worker.prod.js"; ?></script>
-    <script><?php require "dist/lazyload.prod.js"; ?></script>
-    <script><?php require "dist/mediator.prod.js"; ?></script>
-    <style><?php require "dist/hylery.min.css"; ?></style>
+    <script><?php require "dist/service-worker.min.js"; ?></script>
+    <script><?php require "dist/lazysizes.min.js"; ?></script>
+    <script><?php require "dist/cards.js"; ?></script>
     <style><?php require "dist/mediator.min.css"; ?></style>
     <title><?= $page->getName() == NAME | $page->getID() == "home" ? NAME : $page->getName() . " - " . NAME ?></title>
 </head>

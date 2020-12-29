@@ -18,6 +18,6 @@ class Card
 
     public function render()
     {
-        echo("<div id=\"card-$this->id\" class=\"card\" tabindex=\"0\" title=\"$this->title\"><img class=\"lazyload\" data-src=\"$this->image\" width=\"285\" height=\"160\" loading=\"lazy\" alt=\"\"></div>");
+        echo("<a id=\"card-$this->id\" class=\"card\" tabindex=\"0\" title=\"$this->title\" aria-label=\"$this->title\" href=\"$this->link\"><img class=\"lazyload\" data-src=\"$this->image\" width=\"285\" height=\"160\" loading=\"lazy\" alt=\"\"></a>");
     }
 }

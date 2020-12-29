@@ -11,10 +11,10 @@ $page = new Page("home", "Accueil", "Mediator est la base cinématographique de 
 
 <?php include "lib/head.php"; ?>
 
-<body>
+<body id="app">
     <?php include "lib/header.php"; ?>
-    <main>
-        <div id="new-cards" class="cards">
+    <main id="main">
+        <div id="wrap" class="cards">
             <?php foreach ($database->getNewCards(27) as $card) $card->render(); ?>
             <div class="cards-padding"></div>
         </div>

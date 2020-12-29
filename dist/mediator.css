@@ -21,7 +21,7 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font: 400 16px/24px "Roboto", sans-serif;
+  font: 400 16px/24px "Jost", "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -110,11 +110,12 @@ main {
   padding: 64px;
   display: flex;
   align-items: flex-end;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  overflow-x: scroll;
   scroll-behavior: smooth;
+  scroll-padding: 64px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .cards::-webkit-scrollbar {
@@ -143,6 +144,7 @@ main {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   outline: none;
   cursor: pointer;
+  scroll-snap-align: start;
   -webkit-transition-property: all;
   transition-property: all;
   -moz-transition-property: all;
@@ -198,6 +200,7 @@ main {
 }
 
 .background {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -211,6 +214,10 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.background.active {
+  display: block;
 }
 
 .lazyload {
